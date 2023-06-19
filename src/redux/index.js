@@ -1,10 +1,15 @@
-import { createStore } from 'redux';
-import reducer from './reducers';
+import { createStore, combineReducers } from 'redux';
+import * as reducers from './reducers';
+import * as actionCreators from './actions';
+
 import { composeWithDevTools } from '@redux-devtools/extension';
 
-export const store = createStore(reducer);
+const reducer = combineReducers(reducers);
+const composeEnhancers = composeWithDevTools({
+  actionCreators,
+});
 
 export default function configureStore() {
-  const store = createStore(reducer, composeWithDevTools());
+  const store = createStore(reducer, composeEnhancers());
   return store;
 }
