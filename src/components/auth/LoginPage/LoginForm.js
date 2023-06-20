@@ -1,6 +1,6 @@
 import T from 'prop-types';
-
 import useForm from '../../../hooks/useForm';
+import '../../layout/container.css';
 
 const validEmail = ({ email }) => email;
 const validPassword = ({ password }) => password;
@@ -19,24 +19,37 @@ function LoginForm({ onSubmit, isLoading }) {
   const { email, password, remember } = credentials;
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <input name="email" value={email} onChange={handleChange} />
-      <input
-        type="password"
-        name="password"
-        value={password}
-        onChange={handleChange}
-      />
-      <input
-        type="checkbox"
-        name="remember"
-        checked={remember}
-        onChange={handleChange}
-      />
-      <button disabled={!validate(validEmail, validPassword, () => !isLoading)}>
-        Login
-      </button>
-    </form>
+    <div className="loginFormContainer">
+      <h2>Inicio de sesión</h2>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <label>Email</label>
+        <br />
+        <input name="email" value={email} onChange={handleChange} />
+        <br />
+        <br />
+        <label>Password</label>
+        <br />
+        <input
+          type="password"
+          name="password"
+          value={password}
+          onChange={handleChange}
+        />
+        <br />
+        <br />
+        <input
+          type="checkbox"
+          name="remember"
+          checked={remember}
+          onChange={handleChange}
+        />
+        <button
+          disabled={!validate(validEmail, validPassword, () => !isLoading)}
+        >
+          Login
+        </button>
+      </form>
+    </div>
   );
 }
 

@@ -1,0 +1,20 @@
+:root {
+  --text-color: #839095;
+}
+
+.loginFormContainer {
+  padding: 0px 20px 0px 20px;
+  font: 14px 'Lucida Grande', Helvetica, Arial, sans-serif;
+  background-color: #d5edf7;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  place-content: center;
+  min-height: 100vh;
+}
+
+p,
+h2,
+label {
+  color: var(--text-color);
+}
