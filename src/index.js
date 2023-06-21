@@ -13,7 +13,7 @@ import Root from './Root';
 const accessToken = storage.get('auth');
 configureClient({ accessToken });
 
-const store = configureStore();
+const store = configureStore({ auth: !!accessToken });
 
 const root = createRoot(document.getElementById('root'));
 root.render(

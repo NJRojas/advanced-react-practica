@@ -9,7 +9,7 @@ const composeEnhancers = composeWithDevTools({
   actionCreators,
 });
 
-export default function configureStore() {
-  const store = createStore(reducer, composeEnhancers());
+export default function configureStore(initialState) {
+  const store = createStore(reducer, initialState, composeEnhancers());
   return store;
 }
